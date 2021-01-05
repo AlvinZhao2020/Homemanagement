@@ -9,5 +9,9 @@ class House < ApplicationRecord
     # t.datetime "created_at", null: false
     # t.datetime "updated_at", null: false
     validates :address, :buyin_price, :current_price,:rent, :ownner_id , presence: true 
-    
+
+    belongs_to :owner,
+    primary_key: :id,
+    foreign_key: :ownner_id,
+    class_name: :User
 end
